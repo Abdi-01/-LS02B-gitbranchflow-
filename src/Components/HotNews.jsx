@@ -6,7 +6,7 @@ const HotNews = () => {
     const [data, setData] = React.useState([]);
 
     const getData = () => {
-        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=3078491efe8a4a68a44dcb6dddde0384").
+        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=706b3af81f5548d1b6a54a26af1377a9").
             then((res) => {
                 setData(res.data.articles)
             }).catch((err) => {
@@ -20,9 +20,10 @@ const HotNews = () => {
             if (idx == 0) {
                 return <div className='col-8'>
                     <div className='position-absolute w-100'>
-                        <img src={val.urlToImage} className='bg-transparant border' alt="" width={850} height={500}></img>
+                        <img src={val.urlToImage} className='bg-transparant' alt="" width={850} height={500}></img>
                     </div>
-                    <div className='position-relative w-100 ms-1' style={{ marginTop: 330 }}>
+                    <div className='d-sm-table position-relative btn-danger w-25 text-center fs-3'>Featured Story</div>
+                    <div className='position-relative w-100 ms-1' style={{ marginTop: 300 }}>
                         <div className='col-12'>
                             <span className='fs-3 fw-bold text-white'>{val.title}</span>
                             <br />

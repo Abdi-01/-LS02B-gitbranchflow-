@@ -7,7 +7,7 @@ const TopStories = () => {
     const [data, setData] = React.useState([]);
 
     const getData = () => {
-        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=3078491efe8a4a68a44dcb6dddde0384").
+        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=706b3af81f5548d1b6a54a26af1377a9").
             then((res) => {
                 setData(res.data.articles)
             }).catch((err) => {
