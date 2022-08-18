@@ -7,7 +7,7 @@ const TopStories = () => {
     const [data, setData] = React.useState([]);
 
     const getData = () => {
-        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=706b3af81f5548d1b6a54a26af1377a9").
+        Axios.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=d412e5b8eaa34147b38d9c4766de98d9").
             then((res) => {
                 setData(res.data.articles)
             }).catch((err) => {
@@ -16,8 +16,6 @@ const TopStories = () => {
     }
 
     const printData = () => {
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         return data.map((val, idx) => {
             if (idx > 4 && idx < 11 && idx != 8) {
                 return <div className='me-2' style={{ width: 250 }}>
@@ -35,7 +33,7 @@ const TopStories = () => {
                                 </div>
                                 <div className='d-flex mt-2'>
                                     <span>2K Views</span>
-                                    <span className='ms-auto'>{monthNames[val.publishedAt.split('-')[1]]} {val.publishedAt.split('-')[2].split(('T')[0])},{val.publishedAt.split('-')[0]}</span>
+                                    <span className='ms-auto'>{val.publishedAt.split('T')[0]}</span>
                                 </div>
                             </div>
                             <div className='col-1'>
