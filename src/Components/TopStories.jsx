@@ -16,6 +16,8 @@ const TopStories = () => {
     }
 
     const printData = () => {
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         return data.map((val, idx) => {
             if (idx > 4 && idx < 11 && idx != 8) {
                 return <div className='me-2' style={{ width: 250 }}>
@@ -33,7 +35,7 @@ const TopStories = () => {
                                 </div>
                                 <div className='d-flex mt-2'>
                                     <span>2K Views</span>
-                                    <span className='ms-auto'>{val.publishedAt.split('T')[0]}</span>
+                                    <span className='ms-auto'>{monthNames[val.publishedAt.split('-')[1]]} {val.publishedAt.split('-')[2].split(('T')[0])},{val.publishedAt.split('-')[0]}</span>
                                 </div>
                             </div>
                             <div className='col-1'>

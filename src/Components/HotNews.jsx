@@ -15,6 +15,8 @@ const HotNews = () => {
     }
 
     const printHotNews = () => {
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         console.log(data)
         return data.map((val, idx) => {
             if (idx == 0) {
@@ -27,8 +29,8 @@ const HotNews = () => {
                         <div className='col-12'>
                             <span className='fs-3 fw-bold text-white'>{val.title}</span>
                             <br />
-                            <span className='fw-bold text-muted'>{val.publishedAt.split('T')[0]}</span>
-                            <span className='fw-bold text-muted'> - {val.description} </span>
+                            <span className='fw-bold text-white'>{monthNames[val.publishedAt.split('-')[1]]} {val.publishedAt.split('-')[2].split(('T')[0])},{val.publishedAt.split('-')[0]}</span>
+                            <span className='fw-bold text-white'> - {val.description} </span>
                         </div>
                     </div>
                 </div>
@@ -37,13 +39,15 @@ const HotNews = () => {
     }
 
     const printNews = () => {
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         return data.map((val, idx) => {
             if (idx > 0 && idx < 5) {
                 return <div className='mb-3'>
                     <div className='position-relative d-flex'>
                         <img src={val.urlToImage} className='img-fluid border' alt="" width={130}></img>
                         <div className='ms-2'>
-                            <span className='text-muted'>{val.publishedAt.split('T')[0]}</span>
+                            <span className='text-muted'>{monthNames[val.publishedAt.split('-')[1]]} {val.publishedAt.split('-')[2].split(('T')[0])},{val.publishedAt.split('-')[0]}</span>
                             <br />
                             <span className='fw-bold'>{val.title}</span>
                         </div>
